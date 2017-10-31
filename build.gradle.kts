@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 val kotlinVersion by project
 val junitJupiterVersion by project
 val junitPlatformVersion by project
@@ -5,6 +7,9 @@ val junitPlatformVersion by project
 plugins {
     kotlin("jvm") version "1.1.51"
 }
+
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions.jvmTarget = "1.8"
 
 repositories {
     jcenter()
