@@ -1,19 +1,40 @@
 package hello
 
 import kategory.Option
+import kategory.Try
 import kategory.getOrElse
 
-fun main(args: Array<String>) {
-    val someValue: Option<String> = Option.Some("foo")
-    println(someValue.getOrElse { "bar" })
-
-    val noneValue = Option.None
-    println(noneValue.getOrElse { "bar" })
-
-    val otherValue: Option<Double> = Option.Some(20.0)
-    val value = when (otherValue) {
-        is Option.Some -> otherValue.value
-        is Option.None -> 0.0
+fun main(vararg args: String) {
+    run {
+        val someValue: Option<String> = Option.Some("foo")
+        someValue.getOrElse { "bar" }.println
     }
-    println(value)
+
+    run {
+        val noneValue = Option.None
+        noneValue.getOrElse { "bar" }.println
+    }
+
+    run {
+        val someValue: Option<Double> = Option.Some(20.0)
+        val value = when (someValue) {
+            is Option.Some -> someValue.value
+            is Option.None -> 0.0
+        }
+        value.println
+    }
+
+    run {
+        Option(1).map { it + 1 }.println
+    }
+
+    run {
+        Try<Int> { error("failed") }.map { it + 1 }.println
+    }
+
+    run {
+//        Option.monad().binding {
+//
+//        }
+    }
 }
