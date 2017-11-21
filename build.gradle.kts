@@ -5,7 +5,7 @@ val junitJupiterVersion by project
 val junitPlatformVersion by project
 
 plugins {
-    kotlin("jvm") version "1.1.51"
+    kotlin("jvm") version "1.1.60"
 }
 
 val compileKotlin: KotlinCompile by tasks
@@ -13,14 +13,18 @@ compileKotlin.kotlinOptions.jvmTarget = "1.8"
 
 repositories {
     jcenter()
-//    maven("https://kotlin.bintray.com/kotlinx")
+    maven("https://dl.bintray.com/kategory/maven")
 }
 
 dependencies {
     compile(kotlin("stdlib", "$kotlinVersion"))
-    compile("io.kategory:kategory:0.3.10")
-//    compile("io.kategory:kategory-effects:0.3.10")
-//    compile("io.kategory:kategory-optics:0.3.10")
+    compile(kotlin("reflect", "$kotlinVersion"))
+    compile(kotlin("stdlib-jre7", "$kotlinVersion"))
+
+    val kategoryVersion = "0.3.11"
+    compile("io.kategory:kategory:$kategoryVersion")
+    compile("io.kategory:kategory-effects:$kategoryVersion")
+    compile("io.kategory:kategory-optics:$kategoryVersion")
 }
 
 dependencies {
