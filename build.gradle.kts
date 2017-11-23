@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val kotlinVersion by project
 val junitJupiterVersion by project
 val junitPlatformVersion by project
+val kategoryVersion by extra { "0.3.11" }
 
 plugins {
     kotlin("jvm") version "1.1.60"
@@ -18,10 +19,10 @@ repositories {
 
 dependencies {
     compile(kotlin("stdlib", "$kotlinVersion"))
-    compile(kotlin("reflect", "$kotlinVersion"))
     compile(kotlin("stdlib-jre7", "$kotlinVersion"))
+    compile(kotlin("stdlib-jre8", "$kotlinVersion"))
+    compile(kotlin("reflect", "$kotlinVersion"))
 
-    val kategoryVersion = "0.3.11"
     compile("io.kategory:kategory:$kategoryVersion")
     compile("io.kategory:kategory-effects:$kategoryVersion")
     compile("io.kategory:kategory-optics:$kategoryVersion")
