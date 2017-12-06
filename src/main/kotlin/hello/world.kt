@@ -26,10 +26,12 @@ fun main(vararg args: String) {
 
     run {
         Option(1).map { it + 1 }.println
+        Option.None.map { it }.println
     }
 
     run {
         Try<Int> { error("failed") }.map { it + 1 }.println
+        Try { 5 }.map { it + 1 }.println
     }
 
     run {

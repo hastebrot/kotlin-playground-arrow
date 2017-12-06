@@ -13,7 +13,6 @@ fun main(args: Array<String>) {
 
     println(exp.tree())
     println(exp.evaluate())
-    error("foo")
 }
 
 sealed class Expression

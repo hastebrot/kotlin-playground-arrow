@@ -6,7 +6,7 @@ val junitPlatformVersion by project
 val kategoryVersion by extra { "0.3.11" }
 
 plugins {
-    kotlin("jvm") version "1.1.60"
+    kotlin("jvm") version "1.2.0"
 }
 
 val compileKotlin: KotlinCompile by tasks
@@ -19,8 +19,8 @@ repositories {
 
 dependencies {
     compile(kotlin("stdlib", "$kotlinVersion"))
-    compile(kotlin("stdlib-jre7", "$kotlinVersion"))
-    compile(kotlin("stdlib-jre8", "$kotlinVersion"))
+    compile(kotlin("stdlib-jdk7", "$kotlinVersion"))
+    compile(kotlin("stdlib-jdk8", "$kotlinVersion"))
     compile(kotlin("reflect", "$kotlinVersion"))
 
     compile("io.kategory:kategory:$kategoryVersion")
