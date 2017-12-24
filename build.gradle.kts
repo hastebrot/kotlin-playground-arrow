@@ -3,10 +3,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val kotlinVersion by project
 val junitJupiterVersion by project
 val junitPlatformVersion by project
-val kategoryVersion by extra { "0.3.11" }
+val kategoryVersion by extra { "0.4.0" }
 
 plugins {
-    kotlin("jvm") version "1.2.0"
+    kotlin("jvm") version "1.2.10"
 }
 
 val compileKotlin: KotlinCompile by tasks
