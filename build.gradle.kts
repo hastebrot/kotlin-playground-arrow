@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val kotlinVersion by project
 val junitJupiterVersion by project
 val junitPlatformVersion by project
-val kategoryVersion by extra { "0.4.0" }
+val arrowVersion by extra { "0.5.5" }
 
 plugins {
     kotlin("jvm") version "1.2.10"
@@ -14,7 +14,6 @@ compileKotlin.kotlinOptions.jvmTarget = "1.8"
 
 repositories {
     jcenter()
-    maven("https://dl.bintray.com/kategory/maven")
 }
 
 dependencies {
@@ -23,9 +22,11 @@ dependencies {
     compile(kotlin("stdlib-jdk8", "$kotlinVersion"))
     compile(kotlin("reflect", "$kotlinVersion"))
 
-    compile("io.kategory:kategory:$kategoryVersion")
-    compile("io.kategory:kategory-effects:$kategoryVersion")
-    compile("io.kategory:kategory-optics:$kategoryVersion")
+    compile("io.arrow-kt:arrow-core:$arrowVersion")
+    compile("io.arrow-kt:arrow-typeclasses:$arrowVersion")
+    compile("io.arrow-kt:arrow-instances:$arrowVersion")
+    compile("io.arrow-kt:arrow-effects:$arrowVersion")
+    compile("io.arrow-kt:arrow-optics:$arrowVersion")
 }
 
 dependencies {

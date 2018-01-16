@@ -1,9 +1,9 @@
 package hello
 
-import kategory.effects.IO
-import kategory.optics.Lens
-import kategory.optics.lift
-import kategory.optics.modify
+import arrow.effects.IO
+import arrow.optics.Lens
+import arrow.optics.lift
+import arrow.optics.modify
 
 fun main(vararg args: String) {
     val fooValue: Lens<Foo, Int> = Lens(
