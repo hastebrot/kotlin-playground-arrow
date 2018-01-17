@@ -6,7 +6,7 @@ val junitPlatformVersion by project
 val arrowVersion by extra { "0.5.5" }
 
 plugins {
-    kotlin("jvm") version "1.2.10"
+    kotlin("jvm") version "1.2.20"
 }
 
 val compileKotlin: KotlinCompile by tasks
