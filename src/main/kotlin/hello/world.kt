@@ -23,7 +23,7 @@ fun main(vararg args: String) {
         val someValue: Option<Double> = Some(20.0)
         val value = when (someValue) {
             is Some -> someValue.value
-            is None -> 0.0
+            None -> 0.0
         }
         value.println
     }

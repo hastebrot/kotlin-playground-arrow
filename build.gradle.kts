@@ -1,12 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val kotlinVersion by project
-val junitJupiterVersion by project
-val junitPlatformVersion by project
-val arrowVersion by extra { "0.5.5" }
+val arrowVersion by extra { "0.6.1" }
 
 plugins {
-    kotlin("jvm") version "1.2.20"
+    kotlin("jvm") version "1.2.21"
 }
 
 val compileKotlin: KotlinCompile by tasks
@@ -31,7 +29,5 @@ dependencies {
 
 dependencies {
     testCompile(kotlin("test", "$kotlinVersion"))
-    testCompile("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
-    testRuntime("org.junit.platform:junit-platform-launcher:$junitPlatformVersion")
+    testCompile(kotlin("test-junit", "$kotlinVersion"))
 }
