@@ -9,5 +9,6 @@ out/
 *.ipr
 *.iws
 
-# apple macos.
+# cache and log files.
 *.DS_Store
+
