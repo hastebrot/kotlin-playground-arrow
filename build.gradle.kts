@@ -4,7 +4,7 @@ val kotlinVersion by project
 val arrowVersion by extra { "0.6.1" }
 
 plugins {
-    kotlin("jvm") version "1.2.21"
+    kotlin("jvm") version "1.2.30"
 }
 
 val compileKotlin: KotlinCompile by tasks
