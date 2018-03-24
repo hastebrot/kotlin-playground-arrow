@@ -13,8 +13,6 @@ import arrow.syntax.option.none
 import arrow.typeclasses.binding
 import java.util.UUID
 
-inline val <T> Some<T>.value get() = this.t
-
 fun main(vararg args: String) {
     run {
         val someValue: Option<String> = Some("foo")
@@ -72,3 +70,6 @@ fun main(vararg args: String) {
         }).ev().println
     }
 }
+
+inline val <T> Some<T>.value get() = this.t
+
