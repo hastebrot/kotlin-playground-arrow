@@ -1,14 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.Coroutines
 
 val kotlinVersion by project
 val arrowVersion by extra { "0.6.1" }
 
 plugins {
-    kotlin("jvm") version "1.2.30"
+    kotlin("jvm") version "1.2.31"
 }
-
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions.jvmTarget = "1.8"
 
 repositories {
     jcenter()
@@ -30,4 +28,19 @@ dependencies {
 dependencies {
     testCompile(kotlin("test", "$kotlinVersion"))
     testCompile(kotlin("test-junit", "$kotlinVersion"))
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+kotlin {
+    experimental.coroutines = Coroutines.ENABLE
+}
+
+tasks {
+    withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
