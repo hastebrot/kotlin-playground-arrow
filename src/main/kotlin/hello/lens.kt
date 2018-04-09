@@ -2,8 +2,6 @@ package hello
 
 import arrow.effects.IO
 import arrow.optics.Lens
-import arrow.optics.lift
-import arrow.optics.modify
 
 fun main(vararg args: String) {
     val fooValue: Lens<Foo, Int> = Lens(

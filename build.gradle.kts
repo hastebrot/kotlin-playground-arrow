@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.gradle.dsl.Coroutines
 
-val kotlinVersion by project
-val arrowVersion by extra { "0.6.1" }
+val kotlinVersion: Any? by project
+val arrowVersion by extra { "0.7.0" }
 
 plugins {
     kotlin("jvm") version "1.2.31"
@@ -19,8 +19,11 @@ dependencies {
     compile(kotlin("reflect", "$kotlinVersion"))
 
     compile("io.arrow-kt:arrow-core:$arrowVersion")
+    compile("io.arrow-kt:arrow-syntax:$arrowVersion")
     compile("io.arrow-kt:arrow-typeclasses:$arrowVersion")
-    compile("io.arrow-kt:arrow-instances:$arrowVersion")
+    compile("io.arrow-kt:arrow-data:$arrowVersion")
+    compile("io.arrow-kt:arrow-instances-core:$arrowVersion")
+    compile("io.arrow-kt:arrow-instances-data:$arrowVersion")
     compile("io.arrow-kt:arrow-effects:$arrowVersion")
     compile("io.arrow-kt:arrow-optics:$arrowVersion")
 }
