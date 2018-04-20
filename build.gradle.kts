@@ -1,11 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.gradle.dsl.Coroutines
 
-val kotlinVersion: Any? by project
-val arrowVersion by extra { "0.7.0" }
+val kotlinVersion: String by project
+val arrowVersion by extra { "0.7.1" }
 
 plugins {
-    kotlin("jvm") version "1.2.31"
+    val kotlinVersion = "1.2.40"
+    kotlin("jvm") version kotlinVersion
 }
 
 repositories {
@@ -13,10 +14,10 @@ repositories {
 }
 
 dependencies {
-    compile(kotlin("stdlib", "$kotlinVersion"))
-    compile(kotlin("stdlib-jdk7", "$kotlinVersion"))
-    compile(kotlin("stdlib-jdk8", "$kotlinVersion"))
-    compile(kotlin("reflect", "$kotlinVersion"))
+    compile(kotlin("stdlib", kotlinVersion))
+    compile(kotlin("stdlib-jdk7", kotlinVersion))
+    compile(kotlin("stdlib-jdk8", kotlinVersion))
+    compile(kotlin("reflect", kotlinVersion))
 
     compile("io.arrow-kt:arrow-core:$arrowVersion")
     compile("io.arrow-kt:arrow-syntax:$arrowVersion")
@@ -29,8 +30,8 @@ dependencies {
 }
 
 dependencies {
-    testCompile(kotlin("test", "$kotlinVersion"))
-    testCompile(kotlin("test-junit", "$kotlinVersion"))
+    testCompile(kotlin("test", kotlinVersion))
+    testCompile(kotlin("test-junit", kotlinVersion))
 }
 
 java {

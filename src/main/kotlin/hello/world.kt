@@ -72,7 +72,7 @@ fun main(vararg args: String) {
     }
 
     run {
-        val id = Id(3)
+        val id = Id.just(3)
         id.map { it + 3 }.println
     }
 
