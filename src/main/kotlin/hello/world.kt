@@ -66,9 +66,9 @@ fun main(vararg args: String) {
         val maybeName = Option("foo bar")
         val maybeAge = Option(123)
 
-        Option.applicative().map(maybeId, maybeName, maybeAge, { (id, name, age) ->
+        Option.applicative().map(maybeId, maybeName, maybeAge) { (id, name, age) ->
             id to name to age
-        }).fix().println
+        }.fix().println
     }
 
     run {
