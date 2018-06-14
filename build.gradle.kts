@@ -1,12 +1,17 @@
+import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.gradle.dsl.Coroutines
 
+val gradleWrapperVersion: String by project
 val kotlinVersion: String by project
-val arrowVersion by extra { "0.7.1" }
+val arrowVersion by extra { "0.7.2" }
 
 plugins {
-    val kotlinVersion = "1.2.40"
+    val kotlinVersion = "1.2.50"
+    val dokkaVersion = "0.9.17"
+
     kotlin("jvm") version kotlinVersion
+    id("org.jetbrains.dokka") version dokkaVersion
 }
 
 repositories {
@@ -27,11 +32,12 @@ dependencies {
     compile("io.arrow-kt:arrow-instances-data:$arrowVersion")
     compile("io.arrow-kt:arrow-effects:$arrowVersion")
     compile("io.arrow-kt:arrow-optics:$arrowVersion")
+//    compile("io.arrow-kt:arrow-recursion:$arrowVersion")
 }
 
 dependencies {
     testCompile(kotlin("test", kotlinVersion))
-    testCompile(kotlin("test-junit", kotlinVersion))
+    testCompile(kotlin("test-junit5", kotlinVersion))
 }
 
 //java {
@@ -44,7 +50,22 @@ kotlin {
 }
 
 tasks {
+    withType<Wrapper> {
+        gradleVersion = gradleWrapperVersion
+        distributionType = Wrapper.DistributionType.ALL
+    }
+
     withType<KotlinCompile> {
         kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    withType<DokkaTask> {
+        outputFormat = "javadoc"
+        outputDirectory = "$buildDir/javadoc"
+    }
+
+    "dokkaJavadoc"(DokkaTask::class) {
+        outputFormat = "javadoc"
+        outputDirectory = "$buildDir/javadoc"
     }
 }
