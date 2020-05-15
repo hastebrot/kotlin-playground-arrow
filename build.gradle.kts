@@ -10,6 +10,7 @@ plugins {
     val dokkaVersion = "0.10.1"
 
     kotlin("jvm") version kotlinVersion
+    kotlin("kapt") version kotlinVersion
     id("org.jetbrains.dokka") version dokkaVersion
 }
 
@@ -27,6 +28,7 @@ dependencies {
     implementation("io.arrow-kt:arrow-fx:$arrowVersion")
     implementation("io.arrow-kt:arrow-optics:$arrowVersion")
     implementation("io.arrow-kt:arrow-syntax:$arrowVersion")
+    kapt("io.arrow-kt:arrow-meta:$arrowVersion")
 }
 
 dependencies {
