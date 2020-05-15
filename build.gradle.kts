@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val gradleWrapperVersion: String by project
 val kotlinVersion: String by project
-val arrowVersion by extra { "0.7.2" }
+val arrowVersion by extra { "0.10.5" }
 
 plugins {
     val kotlinVersion = "1.3.72"
@@ -24,13 +24,9 @@ dependencies {
     implementation(kotlin("reflect", kotlinVersion))
 
     implementation("io.arrow-kt:arrow-core:$arrowVersion")
-    implementation("io.arrow-kt:arrow-syntax:$arrowVersion")
-    implementation("io.arrow-kt:arrow-typeclasses:$arrowVersion")
-    implementation("io.arrow-kt:arrow-data:$arrowVersion")
-    implementation("io.arrow-kt:arrow-instances-core:$arrowVersion")
-    implementation("io.arrow-kt:arrow-instances-data:$arrowVersion")
-    implementation("io.arrow-kt:arrow-effects:$arrowVersion")
+    implementation("io.arrow-kt:arrow-fx:$arrowVersion")
     implementation("io.arrow-kt:arrow-optics:$arrowVersion")
+    implementation("io.arrow-kt:arrow-syntax:$arrowVersion")
 }
 
 dependencies {
